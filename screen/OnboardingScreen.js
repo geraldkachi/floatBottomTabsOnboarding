@@ -7,7 +7,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import Onboarding from "react-native-onboarding-swiper";
+// import Onboarding from "react-native-onboarding-swiper";
 
 // import { Octicons } from "@expo/vector-icons";
 
@@ -40,34 +40,37 @@ const OnboardingScreen = ({ navigation }) => {
   );
 
   return (
-    <Onboarding
-      SkipButtonComponent={Skip}
-      NextButtonComponent={Next}
-      DoneButtonComponent={Done}
-      DotComponent={Dots}
-      onSkip={() => navigation.replace("BottomTab")}
-      onDone={() => navigation.navigate("BottomTab")}
-      pages={[
-        {
-          backgroundColor: "#a6e4d0",
-          image: <Image source={ImgIcon} />,
-          title: "Connect to the World",
-          subtitle: "Done with React Native Swiper",
-        },
-        {
-          backgroundColor: "#fdeb93",
-          image: <Image source={ImgIconic} />,
-          title: "Share Your Fvaourite",
-          subtitle: "Done with React Native Swiper Second",
-        },
-        {
-          backgroundColor: "#a9bcbe",
-          image: <Image source={ImgIcon} />,
-          title: "Become The Star",
-          subtitle: "Done with React Native Swiper",
-        },
-      ]}
-    />
+    <View style={styles.imageslider}>
+      <Button title="Press Me! please" onPress={()=> navigation.navigate("BottomTab")} />
+    </View>
+    // <Onboarding
+    //   SkipButtonComponent={Skip}
+    //   NextButtonComponent={Next}
+    //   DoneButtonComponent={Done}
+    //   DotComponent={Dots}
+    //   onSkip={() => navigation.replace("BottomTab")}
+    //   onDone={() => navigation.navigate("BottomTab")}
+    //   pages={[
+    //     {
+    //       backgroundColor: "#a6e4d0",
+    //       image: <Image source={ImgIcon} />,
+    //       title: "Connect to the World",
+    //       subtitle: "Done with React Native Swiper",
+    //     },
+    //     {
+    //       backgroundColor: "#fdeb93",
+    //       image: <Image source={ImgIconic} />,
+    //       title: "Share Your Fvaourite",
+    //       subtitle: "Done with React Native Swiper Second",
+    //     },
+    //     {
+    //       backgroundColor: "#a9bcbe",
+    //       image: <Image source={ImgIcon} />,
+    //       title: "Become The Star",
+    //       subtitle: "Done with React Native Swiper",
+    //     },
+    //   ]}
+    // />
   );
 };
 
@@ -80,11 +83,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  //   imageslider: {
-  //     justifyContent: "center",
-  //     alignItems: "center",
-  //     resizeMode: "cover",
-  //   },
+    imageslider: {
+      justifyContent: "center",
+      alignItems: "center",
+      // resizeMode: "cover",
+    },
 });
 
 //   npm audit fix

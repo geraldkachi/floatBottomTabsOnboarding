@@ -88,7 +88,7 @@ function BottomTabScreen() {
                 // tabBarColor: "blue",
                 tabBarIcon: ({ focused}) => (
                    <View style={{ justifyContent: 'center', alignItems:'center', top: 10}}>
-                        <Octicons name="chats" size={24} style={{color: focused ? "#e32f45" : "#748c94"}} />
+                        <Octicons name="broadcast" size={24} style={{color: focused ? "#e32f45" : "#748c94"}} />
                         {/* <Octicons name="chats" size={24} style={{tintColor: focused ? "#e32f45" : "#748c94"}} /> */}
                         <Text style={{color: focused ? "#e32f45" : "#748c94"}}>Chat</Text>
                    </View>
