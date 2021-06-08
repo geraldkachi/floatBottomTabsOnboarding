@@ -7,7 +7,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-// import Onboarding from "react-native-onboarding-swiper";
+import Onboarding from "react-native-onboarding-swiper";
 
 // import { Octicons } from "@expo/vector-icons";
 
@@ -40,37 +40,40 @@ const OnboardingScreen = ({ navigation }) => {
   );
 
   return (
+    <View>
+
     <View style={styles.imageslider}>
       <Button title="Press Me! please" onPress={()=> navigation.navigate("BottomTab")} />
     </View>
-    // <Onboarding
-    //   SkipButtonComponent={Skip}
-    //   NextButtonComponent={Next}
-    //   DoneButtonComponent={Done}
-    //   DotComponent={Dots}
-    //   onSkip={() => navigation.replace("BottomTab")}
-    //   onDone={() => navigation.navigate("BottomTab")}
-    //   pages={[
-    //     {
-    //       backgroundColor: "#a6e4d0",
-    //       image: <Image source={ImgIcon} />,
-    //       title: "Connect to the World",
-    //       subtitle: "Done with React Native Swiper",
-    //     },
-    //     {
-    //       backgroundColor: "#fdeb93",
-    //       image: <Image source={ImgIconic} />,
-    //       title: "Share Your Fvaourite",
-    //       subtitle: "Done with React Native Swiper Second",
-    //     },
-    //     {
-    //       backgroundColor: "#a9bcbe",
-    //       image: <Image source={ImgIcon} />,
-    //       title: "Become The Star",
-    //       subtitle: "Done with React Native Swiper",
-    //     },
-    //   ]}
-    // />
+     <Onboarding
+     SkipButtonComponent={Skip}
+     NextButtonComponent={Next}
+     DoneButtonComponent={Done}
+     DotComponent={Dots}
+     onSkip={() => navigation.replace("Login")}
+     onDone={() => navigation.navigate("Login")}
+     pages={[
+       {
+         backgroundColor: '#a6e4d0',
+         image: <Image source={require('../assets/onboarding-img1.png')} />,
+         title: 'Connect to the World',
+         subtitle: 'A New Way To Connect With The World',
+       },
+       {
+         backgroundColor: '#fdeb93',
+         image: <Image source={require('../assets/onboarding-img2.png')} />,
+         title: 'Share Your Favorites',
+         subtitle: 'Share Your Thoughts With Similar Kind of People',
+       },
+       {
+         backgroundColor: '#e9bcbe',
+         image: <Image source={require('../assets/onboarding-img3.png')} />,
+         title: 'Become The Star',
+         subtitle: "Let The Spot Light Capture You",
+       },
+     ]}
+    />
+    </View>
   );
 };
 

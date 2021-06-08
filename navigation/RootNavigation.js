@@ -6,51 +6,68 @@ import BottomTabScreen from "./BottomTabScreen";
 import LoginScreen from "../screen/LoginScreen";
 import OnboardingScreen from "../screen/OnboardingScreen";
 
-import { AsyncStorage } from "@react-native-community/asyn-storage"
+import { AsyncStorage } from "@react-native-async-storage/async-storage"
 
  const [isFirstLauch, setisFirstLauch] = useState(null)
 
  const AppStack = createStackNavigator();
 
- useEffect(() => {
-  AsyncStorage.getItem('alreadyLaunched').then(value => {
-    if(value == null) {
-      AsyncStorage.setItem('alreadyLaunch', 'true')
-      setisFirstLauch(true)
-    } else {
-      setisFirstLauch(false)
-    }
-  })
- }, [])
 
- if (isFirstLauch === null) {
-   return null
- } else if(isFirstLauch === true) {
-  return (
-    <NavigationContainer>
-      <AppStack.Navigator headerMode="none">
-        <AppStack.Screen name="BottomTab" component={BottomTabScreen} />
-        <AppStack.Screen name="Onboarding" component={OnboardingScreen} />
-      </AppStack.Navigator>
-    </NavigationContainer>
-  );
- } else {
-  <LoginScreen />
- }
+//  if (isFirstLauch === null) {
+  //  return null
+//  } else if(isFirstLauch === true) {
+  // return (
+    // <NavigationContainer>
+      {/* <AppStack.Navigator headerMode="none"> */}
+        {/* <AppStack.Screen name="BottomTab" component={BottomTabScreen} /> */}
+        {/* <AppStack.Screen name="Onboarding" component={OnboardingScreen} /> */}
+      {/* </AppStack.Navigator> */}
+    {/* </NavigationContainer> */}
+  // );
+//  } else {
+  // <LoginScreen />
+//  }
 
 function RootNavigation() { // If this works we shouldnt have to use app.js directly... 
-  return (
-    {isFirstLauch = null ? null : (isFirstLauch = true ? 
-      
-   ( <NavigationContainer>
-      <AppStack.Navigator headerMode="none">
-        <AppStack.Screen name="BottomTab" component={BottomTabScreen} />
-        <AppStack.Screen name="Onboarding" component={OnboardingScreen} />
-      </AppStack.Navigator>
-    </NavigationContainer>)
-    : (<LoginScreen />)
-      )}
-  );
+
+  useEffect(() => {
+    AsyncStorage.getItem('alreadyLaunched').then(value => {
+      if(value == null) {
+        AsyncStorage.setItem('alreadyLaunch', 'true')
+        setisFirstLauch(true)
+      } else {
+        setisFirstLauch(false)
+      }
+    })
+   }, [])
+
+  if (isFirstLauch === null) {
+    return null
+  } else if(isFirstLauch === true) {
+   return (
+     <NavigationContainer>
+       <AppStack.Navigator headerMode="none">
+         <AppStack.Screen name="Onboarding" component={OnboardingScreen} />
+         <AppStack.Screen name="BottomTab" component={BottomTabScreen} />
+       </AppStack.Navigator>
+     </NavigationContainer>
+   );
+  } else {
+   return <LoginScreen />
+  }
+  
+  // return (
+    // {isFirstLauch = null ? null : (isFirstLauch = true ? 
+      // 
+  //  ( <NavigationContainer>
+      {/* <AppStack.Navigator headerMode="none"> */}
+        {/* <AppStack.Screen name="BottomTab" component={BottomTabScreen} /> */}
+        {/* <AppStack.Screen name="Onboarding" component={OnboardingScreen} /> */}
+      {/* </AppStack.Navigator> */}
+    {/* </NavigationContainer>) */}
+    // : (<LoginScreen />)
+      // )}
+  // );
 }
 
 const styles = StyleSheet.create({});
